@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
-  "license": "CSC",
+  "license": "DEMO",
   "private": true,
   "dependencies": {
     "@sap/cds": "^9",
@@ -55,7 +55,7 @@
           "url": "https://port6006-workspaces-ws-14fb8.eu20.applicationstudio.cloud.sap/odata/v4/transaction"
         }
       },
-      "esi": "9a9c1f2b-8e4d5a0c-19e7b3d1-0c1b4a8d-2e7f9c3a-6d2b7e4c-0f0a9d3e-3c2f5e1a-4e4dc3d1-7c7a9c9d"
+      "esi": "99999999-88888888-11111111-00000000-22222222-66666666-00000000-33333333-44444444-77777777"
     }
   },
   "esi": {
