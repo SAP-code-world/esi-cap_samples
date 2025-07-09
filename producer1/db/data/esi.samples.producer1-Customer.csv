@@ -1,0 +1,6 @@
+ID,firstName,lastName,email,phoneNumber,address,createdAt
+550e8400-e29b-41d4-a716-446655440000,Anika,Schneider,anika.schneider@example.com,+4917612345678,"Bahnstr. 21, Berlin",2024-07-01T10:30:00Z
+660e8400-e29b-41d4-a716-446655440001,Lucas,Müller,lucas.mueller@example.com,+4917612345679,"Marktstr. 44, Berlin",2024-07-02T14:15:00Z
+770e8400-e29b-41d4-a716-446655440002,Sophia,Fischer,sophia.fischer@example.com,+4917612345680,"Lindenweg 5, Munich",2024-07-03T09:45:00Z
+880e8400-e29b-41d4-a716-446655440003,Maximilian,Becker,max.becker@example.com,+4917612345681,"Poststr. 8, Cologne",2024-07-04T11:00:00Z
+990e8400-e29b-41d4-a716-446655440004,Lina,Wagner,lina.wagner@example.com,+4917612345682,"Rathausplatz 3, Berlin",2024-07-05T15:20:00Z

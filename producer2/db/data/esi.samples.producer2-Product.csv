@@ -1,0 +1,6 @@
+ID,name,description,price,currency_code,category,available,stock,createdAt
+a1f2e340-1234-4df5-b578-7de2a1f89001,"Wireless Mouse","Ergonomic wireless mouse with adjustable DPI",29.99,EUR,"Electronics",true,150,2024-06-01T08:30:00Z
+b2a3e451-2345-4ab8-9876-8ac1d2f99002,"Bluetooth Headphones","Over ear headphones with noise cancellation",89.50,EUR,"Electronics",true,80,2024-06-02T09:45:00Z
+c3b4f562-3456-4bc9-8765-9bd2e3a09003,"Notebook A5","Hardcover notebook with dotted pages",5.25,EUR,"Stationery",true,300,2024-06-03T11:00:00Z
+d4c5a673-4567-4cd0-7654-0ce3f4b19004,"Standing Desk","Adjustable height desk with dual motors",299.00,EUR,"Furniture",false,20,2024-06-04T14:15:00Z
+e5d6b784-5678-4de1-6543-1df4b5c29005,"Desk Lamp","LED desk lamp with dimmer and USB port",45.75,EUR,"Electronics",true,120,2024-06-05T16:20:00Z

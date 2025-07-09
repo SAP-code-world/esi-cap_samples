@@ -1,0 +1,26 @@
+@server=http://localhost:5005
+@username=alice
+@password=
+
+
+### MeshedUpTransactionSet
+# @name MeshedUpTransactionSet1_GET
+GET {{server}}/odata/v4/consumer/MeshedUpTransactionSet
+Authorization: Basic {{username}} {{password}}
+
+
+### MeshedUpTransactionSet
+# @name MeshedUpTransactionSet2_GET
+GET {{server}}/odata/v4/consumer/MeshedUpTransactionSet?$search=550e8400-e29b-41d4-a716-446655440000&$expand=_Customer,_Employee,_Product
+Authorization: Basic {{username}} {{password}}
+
+
+### MeshedUpTransactionSet
+# @name MeshedUpTransactionSet3_GET
+GET {{server}}/odata/v4/consumer/MeshedUpTransactionSet?$count=true&$expand=_Customer($select=firstName,lastName,email,phoneNumber,address),_Employee($select=firstName,lastName,email,title),_Product($select=name,description,price,stock,category)
+Authorization: Basic {{username}} {{password}}
+
+### MeshedUpTransactionSet
+# @name MeshedUpTransactionSet4_GET
+GET {{server}}/odata/v4/consumer/MeshedUpTransactionSet?$count=true&$filter=_Product/category eq 'Electronics' and contains(_Customer/address, 'Berlin') and _Employee/active eq true
+Authorization: Basic {{username}} {{password}}

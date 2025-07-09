@@ -1,0 +1,131 @@
+{
+  "name": "consumer",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "CSC",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^9",
+    "express": "^4",
+    "esi-cap": "*",
+    "@sap-cloud-sdk/connectivity": ">=4",
+    "@sap-cloud-sdk/http-client": ">=4",
+    "@sap-cloud-sdk/resilience": ">=4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@cap-js/cds-types": "^0.11.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "deploy": "cds deploy --to sqlite",
+    "watch": "PORT=5005 cds watch"
+  },
+  "cds": {
+    "requires": {
+      "CustomerService": {
+        "kind": "odata",
+        "model": "srv/external/CustomerService",
+        "credentials": {
+          "url": "http://port9009-workspaces-ws-14fb8.eu20.applicationstudio.cloud.sap/odata/v4/customer"
+        }
+      },
+      "ProductService": {
+        "kind": "odata",
+        "model": "srv/external/ProductService",
+        "credentials": {
+          "url": "http://port8008-workspaces-ws-14fb8.eu20.applicationstudio.cloud.sap/odata/v4/product"
+        }
+      },
+      "EmployeeService": {
+        "kind": "odata",
+        "model": "srv/external/EmployeeService",
+        "credentials": {
+          "url": "http://port7007-workspaces-ws-14fb8.eu20.applicationstudio.cloud.sap/odata/v4/employee"
+        }
+      },
+      "TransactionService": {
+        "kind": "odata",
+        "model": "srv/external/TransactionService",
+        "credentials": {
+          "url": "https://port6006-workspaces-ws-14fb8.eu20.applicationstudio.cloud.sap/odata/v4/transaction"
+        }
+      },
+      "esi": "9a9c1f2b-8e4d5a0c-19e7b3d1-0c1b4a8d-2e7f9c3a-6d2b7e4c-0f0a9d3e-3c2f5e1a-4e4dc3d1-7c7a9c9d"
+    }
+  },
+  "esi": {
+    "requires": {
+      "LogLevel": "trace",
+      "Log2File": true,
+      "RemoteService": {
+        "CustomerSystem": {
+          "Customer": "CustomerService"
+        },
+        "HRSystem": {
+          "Employee": "EmployeeService"
+        },
+        "ProductSystem": {
+          "Product": "ProductService"
+        },
+        "ERPSystem": {
+          "Transactions": "TransactionService"
+        }
+      },
+      "LocalService": {
+        "ConsumerService": {
+          "navigations": {
+            "ToProductSetOnProduct": {
+              "on": "product",
+              "to": {
+                "name": "_Product",
+                "target": {
+                  "source": "RemoteService.ProductSystem.Product.ProductSet",
+                  "on": "ID"
+                }
+              }
+            },
+            "ToCustomerSetOnCustomer": {
+              "on": "customer",
+              "to": {
+                "name": "_Customer",
+                "target": {
+                  "source": "RemoteService.CustomerSystem.Customer.CustomerSet",
+                  "on": "ID"
+                }
+              }
+            },
+            "ToEmployeeSetOnEmployee": {
+              "on": "employee",
+              "to": {
+                "name": "_Employee",
+                "target": {
+                  "source": "RemoteService.HRSystem.Employee.EmployeeSet",
+                  "on": "ID"
+                }
+              }
+            }
+          },
+          "MeshedUpTransactionSet": {
+            "service": "RemoteService.ERPSystem.Transactions",
+            "search": [
+              "ID",
+              "customer",
+              "employee",
+              "product"
+            ],
+            "navigation": [
+              "LocalService.ConsumerService.navigations.ToProductSetOnProduct",
+              "LocalService.ConsumerService.navigations.ToEmployeeSetOnEmployee",
+              "LocalService.ConsumerService.navigations.ToCustomerSetOnCustomer"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

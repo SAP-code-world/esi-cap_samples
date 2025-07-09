@@ -1,0 +1,6 @@
+ID,firstName,lastName,email,department,title,hireDate,active
+101e8400-e29b-41d4-a716-446655440001,Julia,Hoffmann,julia.hoffmann@example.com,Sales,Sales Manager,2021-04-15,true
+102e8400-e29b-41d4-a716-446655440002,Daniel,Weber,daniel.weber@example.com,Engineering,Software Engineer,2022-07-01,true
+103e8400-e29b-41d4-a716-446655440003,Nina,Baumann,nina.baumann@example.com,Finance,Accountant,2020-09-10,true
+104e8400-e29b-41d4-a716-446655440004,Tobias,Klein,tobias.klein@example.com,HR,HR Specialist,2023-01-05,true
+105e8400-e29b-41d4-a716-446655440005,Lea,Zimmer,lea.zimmer@example.com,Engineering,DevOps Engineer,2022-10-20,false
